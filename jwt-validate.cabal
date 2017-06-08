@@ -1,0 +1,32 @@
+name:                jwt-validate
+version:             0.1.0.0
+-- synopsis:
+description:         Simple tool for validating signed JWT
+homepage:            https://github.com/scavno/jwt-validate
+license:             BSD3
+license-file:        LICENSE
+author:              Dag Heradstveit
+maintainer:          dagherad@gmail.com
+copyright:           2017 scav
+category:            Utility
+build-type:          Simple
+cabal-version:       >=1.10
+extra-source-files:  README.md
+
+library
+  hs-source-dirs:      src
+  exposed-modules:     Validate
+  build-depends:       base >= 4.7 && < 5
+                     , aeson
+                     , jwt
+                     , time
+  default-language:    Haskell2010
+
+executable jwtv
+  hs-source-dirs:      app
+  main-is:             Main.hs
+  ghc-options:         -threaded -rtsopts -with-rtsopts=-N -Wall
+  default-language:    Haskell2010
+  build-depends:       base >= 4.7 && < 5
+                     , jwt-validate
+                     , jwt
