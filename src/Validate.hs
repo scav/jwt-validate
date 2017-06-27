@@ -16,7 +16,7 @@ valid x = do
   putStrLn $ tokenStatus now x extractExpNumeric
 
 tokenStatus :: POSIXTime -> JSON -> (JWT VerifiedJWT -> NumericDate) -> String
-tokenStatus now token ex = case decodeAndVerifySignature (secret "secfret") token of
+tokenStatus now token ex = case decodeAndVerifySignature (secret "secret") token of
         Just x -> case isTokenExp now ex x of
               Right z -> "Token is valid and not expired."
               Left z -> "Token is valid but expired."
