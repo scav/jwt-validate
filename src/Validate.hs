@@ -31,4 +31,4 @@ isTokenExp now expT token
 
 -- This should have its own type
 extractExpNumeric :: JWT VerifiedJWT -> NumericDate
-extractExpNumeric x = fromJust (exp (claims x))
+extractExpNumeric = fromJust . exp . claims
